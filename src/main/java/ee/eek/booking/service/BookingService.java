@@ -41,13 +41,12 @@ public class BookingService {
         return BookingMapper.toDto(booking);
     }
 
-    public List<BookingDto> findAvailableRoom(LocalDate checkInDate, LocalDate checkOutDate){
-        List<Booking> bookings = bookingRepository.findAvailableRooms(checkInDate,checkOutDate);
+    public List<BookingDto> findAvailableRooms(LocalDate checkInDate, LocalDate checkOutDate) {
+        List<Booking> bookings = bookingRepository.findAvailableRooms(checkInDate, checkOutDate);
         return bookings.stream()
                 .map(BookingMapper::toDto)
                 .toList();
     }
-
     //deleteBooking
 
     private Booking requireBooking(Long id) {
