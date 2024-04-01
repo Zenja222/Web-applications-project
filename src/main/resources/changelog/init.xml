@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog logicalFilePath="db.changelog-1.0.xml" xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet author="jevgeni.pogodin" id="init-schema">
+        <sql splitStatements="false">
+            CREATE TABLE user
+            (
+                id            SERIAL PRIMARY KEY,
+                username      VARCHAR,
+                password      VARCHAR,
+                role          integer
+            );
+
+            CREATE TABLE booking
+            (
+                id              SERIAL PRIMARY KEY,
+                guestId         integer,
+                checkInDate     TIMESTAMP,
+                checkOutDate    TIMESTAMP,
+
+                CONSTRAINT fk_booking_user FOREIGN KEY (guestId) REFERENCES user(id)
+            );
+
+            CREATE TABLE room
+            (
+                id            SERIAL PRIMARY KEY,
+                roomType      VARCHAR,
+                price         DOUBLE
+            );
+        </sql>
+    </changeSet>
+
+
+</databaseChangeLog>
