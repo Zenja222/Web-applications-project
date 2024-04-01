@@ -2,11 +2,11 @@ package ee.eek.booking.dto;
 
 import lombok.Data;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 @Data
 public class BookingDto {
-    private LocalDateTime checkInDate;
-    private LocalDateTime checkOutDate;
+    private LocalDate checkInDate;
+    private LocalDate checkOutDate;
     private Long guestId; // ????
 }

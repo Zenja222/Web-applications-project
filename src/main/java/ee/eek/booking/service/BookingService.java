@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import org.apache.catalina.mapper.Mapper;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 
 
@@ -38,6 +39,13 @@ public class BookingService {
     public BookingDto findById(Long id){
         Booking booking = requireBooking(id);
         return BookingMapper.toDto(booking);
+    }
+
+    public List<BookingDto> findAvailableRoom(LocalDate checkInDate, LocalDate checkOutDate){
+        List<Booking> bookings = bookingRepository.findAvailableRooms(checkInDate,checkOutDate);
+        return bookings.stream()
+                .map(BookingMapper::toDto)
+                .toList();
     }
 
     //deleteBooking
