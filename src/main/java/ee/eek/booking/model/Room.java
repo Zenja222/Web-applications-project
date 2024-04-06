@@ -11,4 +11,5 @@ public class Room {
     private Long id;
     private String roomType;
     private double price;
+    private boolean status;
 }

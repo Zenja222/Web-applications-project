@@ -10,11 +10,6 @@ import java.util.List;
 
 public interface BookingRepository extends CrudRepository<Booking, Long> {
     List<Booking> findAll();
-    @Query("SELECT * FROM booking " +
-            "WHERE check_in_date <= :checkOutDate " +
-            "AND check_out_date >= :checkInDate")
-    List<Booking> findAvailableRooms(@Param("checkInDate") LocalDate checkInDate,
-                                     @Param("checkOutDate") LocalDate checkOutDate);
 }
 
 

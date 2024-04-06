@@ -3,34 +3,39 @@
                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
 
-    <changeSet author="jevgeni.pogodin" id="init-schema">
+    <changeSet author="jevgeni.pogodin" id="init-schema1">
         <sql splitStatements="false">
-            CREATE TABLE user
+            CREATE TABLE "user"
             (
                 id            SERIAL PRIMARY KEY,
                 username      VARCHAR,
-                password      VARCHAR,
-                role          integer
-            );
-
-            CREATE TABLE booking
-            (
-                id              SERIAL PRIMARY KEY,
-                guestId         integer,
-                checkInDate     TIMESTAMP,
-                checkOutDate    TIMESTAMP,
-
-                CONSTRAINT fk_booking_user FOREIGN KEY (guestId) REFERENCES user(id)
-            );
-
-            CREATE TABLE room
-            (
-                id            SERIAL PRIMARY KEY,
-                roomType      VARCHAR,
-                price         DOUBLE
+                password      VARCHAR
             );
         </sql>
     </changeSet>
 
+    <changeSet author="jevgeni.pogodin" id="init-schema2">
+        <sql splitStatements="false">
+             CREATE TABLE booking
+            (
+            id              SERIAL PRIMARY KEY,
+            room_id         integer,
+            guest_id         integer,
+            check_in_date     TIMESTAMP,
+            check_out_date    TIMESTAMP
+        );
+    </sql>
+    </changeSet>
 
-</databaseChangeLog>
+<changeSet author="jevgeni.pogodin" id="init-schema3">
+<sql splitStatements="false">
+    CREATE TABLE room
+    (
+    id            SERIAL PRIMARY KEY,
+    room_type     VARCHAR,
+    price         DOUBLE PRECISION,
+    status        BOOLEAN
+    );
+</sql>
+</changeSet>
+        </databaseChangeLog>
