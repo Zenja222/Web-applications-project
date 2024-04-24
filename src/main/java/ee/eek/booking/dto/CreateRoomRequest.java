@@ -6,5 +6,4 @@ import lombok.Data;
 public class CreateRoomRequest {
     private String roomType;
     private double price;
-    private boolean status;
 }

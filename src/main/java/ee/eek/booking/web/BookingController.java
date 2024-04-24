@@ -2,8 +2,6 @@ package ee.eek.booking.web;
 
 import ee.eek.booking.dto.BookingDto;
 import ee.eek.booking.dto.CreateBookingRequest;
-import ee.eek.booking.dto.UpdateBooking;
-import ee.eek.booking.dto.UpdateStatusRequest;
 import ee.eek.booking.service.BookingService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -29,8 +27,9 @@ public class BookingController {
     public BookingDto update(@PathVariable Long id, @RequestBody BookingDto request) {
         return bookingService.updateBooking(id, request);
     }
-    @PutMapping
-    public BookingDto update(@RequestBody UpdateBooking request) {
-        return null;
+
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable Long id) {
+        bookingService.delete(id);
     }
 }

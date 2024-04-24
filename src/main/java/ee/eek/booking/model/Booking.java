@@ -10,7 +10,7 @@ import java.time.LocalDate;
 public class Booking {
     @Id
     private Long id;
-    private Long guestId; // ?
+    private Long guestId;
     private Long roomId;
     private LocalDate checkInDate;
     private LocalDate checkOutDate;

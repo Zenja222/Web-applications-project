@@ -24,10 +24,5 @@ public class RoomController {
     public List<RoomDto> getAll(){
         return roomService.getAll();
     }
-
-    @GetMapping("/available")
-    public List<RoomDto> findAvailableRooms(){
-        return roomService.findAvailableRooms();
-    }
 }
 

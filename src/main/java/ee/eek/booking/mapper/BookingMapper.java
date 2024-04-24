@@ -2,9 +2,8 @@ package ee.eek.booking.mapper;
 
 import ee.eek.booking.dto.BookingDto;
 import ee.eek.booking.dto.CreateBookingRequest;
-import ee.eek.booking.dto.RoomDto;
 import ee.eek.booking.model.Booking;
-import ee.eek.booking.model.Room;
+
 
 public class BookingMapper {
 

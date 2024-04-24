@@ -3,8 +3,6 @@ package ee.eek.booking.dto;
 import lombok.Data;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-
 @Data
 public class BookingDto {
     private long id;
@@ -12,4 +10,6 @@ public class BookingDto {
     private Long roomId;
     private LocalDate checkInDate;
     private LocalDate checkOutDate;
+    private String errorMessage;
+
 }

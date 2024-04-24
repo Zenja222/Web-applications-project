@@ -33,8 +33,7 @@
     (
     id            SERIAL PRIMARY KEY,
     room_type     VARCHAR,
-    price         DOUBLE PRECISION,
-    status        BOOLEAN
+    price         DOUBLE PRECISION
     );
 </sql>
 </changeSet>
