@@ -37,12 +37,12 @@ public class BookingService {
         return BookingMapper.toDto(bookingRepository.save(booking));
     }
 
-//    public List<BookingDto> getAll(){
-//        return bookingRepository.findAll()
-//                .stream()
-//                .map(BookingMapper::toDto)
-//                .toList();
-//    }
+    public List<BookingDto> getAll(){
+        return bookingRepository.findAll()
+                .stream()
+                .map(BookingMapper::toDto)
+                .toList();
+    }
 
     public BookingDto findById(Long id){
         Booking booking = requireBooking(id);

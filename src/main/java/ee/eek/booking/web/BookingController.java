@@ -2,9 +2,12 @@ package ee.eek.booking.web;
 
 import ee.eek.booking.dto.BookingDto;
 import ee.eek.booking.dto.CreateBookingRequest;
+import ee.eek.booking.dto.RoomDto;
 import ee.eek.booking.service.BookingService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
@@ -14,8 +17,13 @@ public class BookingController {
     private final BookingService bookingService;
 
     @PostMapping
-    public BookingDto create(@RequestBody CreateBookingRequest request){
+        public BookingDto create(@RequestBody CreateBookingRequest request){
         return bookingService.createBooking(request);
+    }
+
+    @GetMapping
+    public List<BookingDto> getAll(){
+        return bookingService.getAll();
     }
 
     @GetMapping("/{id}")

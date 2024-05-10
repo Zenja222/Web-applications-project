@@ -5,6 +5,7 @@ import ee.eek.booking.dto.RoomDto;
 import ee.eek.booking.dto.UserDto;
 import ee.eek.booking.mapper.RoomMapper;
 import ee.eek.booking.mapper.UserMapper;
+import ee.eek.booking.model.Booking;
 import ee.eek.booking.model.Room;
 import ee.eek.booking.model.User;
 import ee.eek.booking.repository.RoomRepository;
@@ -36,6 +37,11 @@ public class RoomService {
     }
     private Room requireRoom(Long id) {
         return roomRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("room not found"));
+    }
+
+    public void delete(Long id){
+        Room room = requireRoom(id);
+        roomRepository.delete(room);
     }
 
 }

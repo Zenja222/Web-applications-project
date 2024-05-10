@@ -24,5 +24,10 @@ public class RoomController {
     public List<RoomDto> getAll(){
         return roomService.getAll();
     }
+
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable Long id) {
+        roomService.delete(id);
+    }
 }
 
